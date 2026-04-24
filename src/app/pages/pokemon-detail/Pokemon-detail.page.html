@@ -1,0 +1,98 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+        <ion-back-button defaultHref="/pokemon-list" text="Lista"></ion-back-button>
+        </ion-buttons>
+        <ion-title>{{ pokemon?.name | titlecase }}</ion-title>
+        <ion-buttons slot="end">
+        <ion-button (click)="toggleShiny()" [color]="isShiny ? 'warning' : 'light'">
+            shiny
+        </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="detail-content">
+
+    <!-- Loading -->
+    <div class="loading-wrap" *ngIf="loading">
+        <ion-spinner name="crescent" color="primary"></ion-spinner>
+        <p>Cargando...</p>
+    </div>
+
+    <!-- Contenido -->
+    <div *ngIf="!loading && pokemon">
+
+        <!-- Hero -->
+        <div class="hero-section">
+        <p class="poke-num">#{{ pokemon.id | number:'3.0-0' }}</p>
+        <img [src]="getSprite()" [alt]="pokemon.name" class="poke-sprite" />
+        <h1 class="poke-name">{{ pokemon.name | titlecase }}</h1>
+        <p class="poke-genus">{{ getGenus() }}</p>
+        <div class="type-chips">
+            <ion-badge
+            *ngFor="let t of pokemon.types"
+            class="type-badge"
+            [style.background]="getTypeColor(t.type.name).bg"
+            [style.color]="getTypeColor(t.type.name).text">
+            {{ t.type.name }}
+            </ion-badge>
+        </div>
+        </div>
+
+        <!-- Descripción -->
+        <div class="section-card">
+        <p class="section-label">Descripcion</p>
+        <p class="desc-text">{{ getDescription() }}</p>
+        </div>
+
+        <!-- Medidas -->
+        <div class="section-card">
+        <p class="section-label">Medidas</p>
+        <div class="measures-grid">
+            <div class="measure-item">
+            <p class="measure-label">Altura</p>
+            <p class="measure-value">{{ (pokemon.height / 10).toFixed(1) }} m</p>
+            </div>
+            <div class="measure-item">
+            <p class="measure-label">Peso</p>
+            <p class="measure-value">{{ (pokemon.weight / 10).toFixed(1) }} kg</p>
+            </div>
+            <div class="measure-item">
+            <p class="measure-label">Exp. base</p>
+            <p class="measure-value">{{ pokemon.base_experience ?? '—' }}</p>
+            </div>
+            <div class="measure-item">
+            <p class="measure-label">Habilidades</p>
+            <div class="abilities-wrap">
+                <ion-chip
+                *ngFor="let a of pokemon.abilities"
+                class="ability-chip"
+                outline>
+                {{ a.ability.name | titlecase }}
+                <span *ngIf="a.is_hidden" class="hidden-tag">oculta</span>
+                </ion-chip>
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Estadísticas -->
+        <div class="section-card">
+        <p class="section-label">Estadisticas base</p>
+        <div class="stat-row" *ngFor="let stat of pokemon.stats; let i = index">
+            <span class="stat-name">{{ formatStatName(stat.stat.name) }}</span>
+            <div class="stat-bar-wrap">
+            <div
+                class="stat-bar"
+                [style.width]="statBarWidth(stat.base_stat)"
+                [style.background]="getStatColor(i)">
+            </div>
+            </div>
+            <span class="stat-num">{{ stat.base_stat }}</span>
+        </div>
+        </div>
+
+    </div>
+
+</ion-content>

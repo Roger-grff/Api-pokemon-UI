@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Pokédex</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- Búsqueda -->
+  <ion-searchbar
+    [(ngModel)]="searchQuery"
+    (ionInput)="filterList()"
+    placeholder="Buscar pokémon..."
+    debounce="300"
+    animated>
+  </ion-searchbar>
+
+  <!-- Filtros por tipo -->
+  <div class="type-filters">
+    <ion-chip
+      *ngFor="let type of typeFilters"
+      [class.active-chip]="activeType === type"
+      [style.background]="activeType === type && type !== 'all' ? getTypeColor(type).bg : ''"
+      [style.color]="activeType === type && type !== 'all' ? getTypeColor(type).text : ''"
+      (click)="setType(type)">
+      {{ type === 'all' ? 'Todos' : type }}
+    </ion-chip>
+  </div>
+
+  <!-- Skeleton de carga -->
+  <div *ngIf="loadingList" class="skeleton-wrap">
+    <ion-skeleton-text
+      *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]"
+      animated
+      style="height: 64px; border-radius: 10px; margin: 6px 12px;">
+    </ion-skeleton-text>
+  </div>
+
+  <!-- Lista de pokémon -->
+  <ion-list *ngIf="!loadingList" lines="none" class="pokemon-list">
+    <ion-item
+      *ngFor="let pokemon of filteredPokemons"
+      class="pokemon-item"
+      button
+      detail
+      (click)="selectPokemon(pokemon)">
+      <img slot="start" [src]="getThumb(pokemon.id)" [alt]="pokemon.name" class="poke-thumb" loading="lazy" />
+      <ion-label>
+        <p class="poke-num">#{{ pokemon.id | number:'3.0-0' }}</p>
+        <h2 class="poke-name">{{ pokemon.name | titlecase }}</h2>
+      </ion-label>
+    </ion-item>
+
+    <div class="no-results" *ngIf="filteredPokemons.length === 0">
+      Sin resultados para "{{ searchQuery }}"
+    </div>
+  </ion-list>
+
+</ion-content>
