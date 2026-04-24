@@ -190,7 +190,14 @@ La app usa dos pantallas con navegacion nativa de Ionic:
 
 ## Capturas de pantalla
 
+<div align="center"> 
+  <img src="https://github.com/user-attachments/assets/7583e68f-2fbf-443b-9a0d-ae8d5d4a303a" width="250" /> 
+  <img src="https://github.com/user-attachments/assets/dc5cf65d-de0d-4139-b6c2-a9061d763ba8" width="250" /> 
+  <img src="https://github.com/user-attachments/assets/08222fb9-4f0c-4f0c-83dd-ba2961026e21" width="250" />
 
+<br/><br/>
+
+<img src="https://github.com/user-attachments/assets/4f261ce7-d5ce-4021-a8bd-d18410b302fc" width="250"/> </div>
 
 ---
 
