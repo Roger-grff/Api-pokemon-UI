@@ -191,9 +191,10 @@ La app usa dos pantallas con navegacion nativa de Ionic:
 ## Capturas de pantalla
 
 <div align="center"> 
-  <img src="https://github.com/user-attachments/assets/7583e68f-2fbf-443b-9a0d-ae8d5d4a303a" width="250" /> 
-  <img src="https://github.com/user-attachments/assets/dc5cf65d-de0d-4139-b6c2-a9061d763ba8" width="250" /> 
-  <img src="https://github.com/user-attachments/assets/08222fb9-4f0c-4f0c-83dd-ba2961026e21" width="250" />
+  <img width="250" height="1600" alt="WhatsApp Image 2026-04-26 at 00 11 23" src="https://github.com/user-attachments/assets/d4c3fa2d-62d1-4956-ae90-b1a9a5464683" />
+  <img width="250" height="2340" alt="WhatsApp Image 2026-04-26 at 00 11 23 (1)" src="https://github.com/user-attachments/assets/509d3a9a-8e09-4253-8c59-83c826b2bbb3" />
+  <img width="250" height="1600" alt="WhatsApp Image 2026-04-26 at 00 11 23 (2)" src="https://github.com/user-attachments/assets/d62d20d1-0aa5-4984-8e78-f44c3590ca62" />
+  <img width="250" height="1600" alt="WhatsApp Image 2026-04-26 at 00 11 22" src="https://github.com/user-attachments/assets/91f3e978-1505-47ad-9672-5bcf3db4f7dd" />
 
 <br/><br/>
 
