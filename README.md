@@ -3,6 +3,7 @@
 
 Aplicación móvil desarrollada con **Ionic 8 + Angular 18** que consume la [PokéAPI](https://pokeapi.co/) para listar, buscar y visualizar los detalles de los primeros 151 pokémon de la primera generación.
 
+apk: https://drive.google.com/file/d/15xAbCQYH-qm8ecQSDpYUtzg8rMscxPCJ/view?usp=sharing
 ---
 
 ## Tecnologías utilizadas
